@@ -1,0 +1,42 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layout/template.zul"?>
+<zk xmlns:h="xhtml" xmlns:zk="zk" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="xhtml ">
+	<window self="@define(content)" id="winMain"
+			apply="ir.infosphere.sport.ui.registeration.ChangePassPage"
+			sclass="rtl">
+		<label id="lblTitle" class="title-page"/>
+		<div class="page-section">
+			<div class="change-pass-box clearfix">
+				<label value="کلمه عبور فعلی"/>
+
+				<label value="*" style="color:red"/>
+				<separator/>
+				<textbox id="txtCurrentPass" tabindex="1"
+						 type="password"/>
+				<div class="clearfix"/>
+				<label value="کلمه عبور جدید" width="150px"/>
+				<label value="*" style="color:red"/>
+				<separator/>
+				<textbox id="txtNewPass"
+						 placeholder="حداقل  8 کاراکتر غیر فارسی " type="password"
+						 constraint="${c:new1('ir.infosphere.sport.constraint.PasswordConstraint', true)}"
+						 tabindex="2"/>
+				<div class="clearfix"/>
+				<label value="تکرار کلمه عبور جدید" width="150px"/>
+				<label value="*" style="color:red"/>
+				<separator/>
+				<textbox id="txtNewPassRepeat"
+						 placeholder="حداقل  8 کاراکتر غیر فارسی " type="password"
+						 constraint="${c:new1('ir.infosphere.sport.constraint.PasswordConstraint', true)}"
+						 tabindex="3"/>
+				<div class="clearfix"/>
+			</div>
+		</div>
+		<div class="page-section done-btns">
+			<button id="btnSave" label="ذخیره"
+					image="/img/save-icon.png"/>
+			<button id="btnBack" label="بازگشت"
+					image="/img/back-icon.png"/>
+		</div>
+	</window>
+</zk>
